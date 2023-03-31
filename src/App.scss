@@ -1,0 +1,42 @@
+
+@keyframes obstacle {
+  0%{left: 875px;}
+  100%{left:0px;}
+}
+
+@keyframes jump {
+  0%{top:325px;}
+  30%{top:250px;}
+  70%{top:250px;}
+  100%{top:325px}
+}
+
+.game{
+  border: 3px solid black ;
+  width: 900px;
+  height: 450px;
+  margin: 25px;
+
+  &__character{
+    height: 125px;
+    width: 50px;
+    background-color: green;
+    position: relative;
+    top: 325px; 
+
+    &--animate{
+      animation: jump 0.5s linear;
+    }
+  }
+
+  &__obstacle{
+    height: 25px;
+    width: 25px;
+    background-color: red;
+    position: relative;
+    top: 300px;
+    left: 875px; 
+    animation: obstacle 2s linear infinite;
+
+  }
+}

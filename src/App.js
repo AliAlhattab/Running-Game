@@ -1,25 +1,26 @@
-import logo from './logo.svg';
-import './App.css';
+import './App.scss';
+import React, { useState } from 'react';
 
 function App() {
+
+  const [isJumping, setIsJumping] = useState(false)
+
+  function handleJump(){
+    setIsJumping(true)
+    setTimeout(() => {
+      setIsJumping(false)
+    }, 500);
+   }
+
+   console.log(isJumping)
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <section className="game">
+      <div className={`game__character game__character${isJumping ? '--animate' : ''}`} onClick={handleJump}></div>
+      <div className='game__obstacle'></div>
+    </section>
   );
 }
+
+
 
 export default App;
